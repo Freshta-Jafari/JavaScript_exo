@@ -3,10 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Hello JS</title>
 </head>
 <body>
     <h1>Hello JS</h1>
     <script src="js/main.js"></script>
+
+<br>
+<button onclick="turnOn()">turn on</button>
+<img id="image" src="image.jfif" alt="off ligth">
+<button onclick="turnOff()">turn off</button>
+
+<p id="text">
+
+</p>
+
+<button onclick="window.alert('Bravooooo')">click me</button>
+
+<script>
+
+    document.getElementById('text').innerHTML = "hiiiiiiiiiiiiiii";
+    document.write('bienvenu');
+    window.alert(6+6);
+    alert(7*7);
+    
+    function turnOn(){
+            const image = document.getElementById('image');
+            image.src = 'img1.jfif'; 
+            image.alt = 'On light'; 
+            
+           //image.style.display = 'none';
+        }
+
+        function turnOff() {
+            const image = document.getElementById('image');
+            image.src = 'image.jfif';
+            image.alt = 'Off light'; 
+           // image.style.display = 'block';
+        }
+    
+</script>
+
 </body>
 </html>

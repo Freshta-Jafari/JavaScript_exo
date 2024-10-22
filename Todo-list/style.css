@@ -6,16 +6,12 @@ body {
     padding: 0;
 }
 #wrapper {
-    max-width: 800px;
+    max-width: 100%;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* display: flex;
-    flex: wrap;
-    justify-content: left;
-    align-items: left; */
 }
 h1 {
     text-align: center;
@@ -40,35 +36,46 @@ h1 {
 }
 #btn:hover {
     background-color: #0056b3;
+    color: white;
+}
+#cardCounter {
+    padding: 5px;
 }
 #todoCards {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     margin-top: 10px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
-   
+    overflow-y: auto;
+    overflow-x: auto;
+    white-space: nowrap;
 }
-.todoCards:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
+.todoCard {
+    position: relative;
+    padding: 10px;
+    background-color: #f9f9f9;
+    gap: 5px;
 }
+
+
 .task {
-    width: 20%;
+    position: relative;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     resize: none;
     font-size: 14px;
 }
-.task:focus {
-    border-color: #007BFF;
-    outline: none;
-}
+
 .delBtn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px;
     cursor: pointer;
     color: #000000;
     font-size: 20px;
@@ -77,7 +84,7 @@ h1 {
     color: #000000;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 100%) {
     #wrapper {
         padding: 10px;
     }

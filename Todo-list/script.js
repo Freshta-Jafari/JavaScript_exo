@@ -1,38 +1,54 @@
-const addBtn = document.querySelector('#btn');
-addBtn.addEventListener('click', addTask);
+document.addEventListener("DOMContentLoaded", () => {
+    const addButton = document.getElementById("btn");
+    const todoCardsContainer = document.getElementById("todoCards");
+   const cardCounter = document.getElementById("cardCounter");
+    let taskCount = 0; 
 
-const taskCards = document.querySelector('.todoCard');
-const tasksContainer = document.querySelector('#todoCards');
+   
+    function addTask() {
+        taskCount++; 
 
-function addTask (){
-    const newTask = taskCards.cloneNode(true);
-    const newTextArea = newTask.querySelector('.task');
-    newTextArea.value = "New Task";
-    tasksContainer.appendChild(newTask);
-}
+        const todoCard = document.createElement("div");
+        todoCard.classList.add("todoCard");
 
-function addTask(){
-    const newTask = document.createElement('div');
-    newTask.classList.add('todoCard');
+        const textarea = document.createElement("textarea");
+        textarea.classList.add("task");
+        textarea.value = `Task ${taskCount}`;
+        textarea.maxLength = 200;
+        textarea.cols = 20;
+        textarea.rows = 15;
 
-    const newTextArea = document.createElement('textarea');
-    newTextArea.classList.add('task');
-    newTextArea.maxLength = 200;
-    newTextArea.cols = 20;
-    newTextArea.rows = 3;
-    newTextArea.value = "New Task";
+        const delBtn = document.createElement("span");
+        delBtn.classList.add("delBtn");
+        delBtn.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
+        delBtn.addEventListener("click", () => {
+            todoCardsContainer.removeChild(todoCard);
+            taskCount--; 
+            updateTaskNumbers(); 
+            updateCardCounter();
+        });
 
-    const delBtn = document.createElement('span');
-    delBtn.classList.add('delBtn');
-    delBtn.innerHTML = '<i class="fa-solid fa-trash-can" aria-hidden="true"></i>';
+        todoCard.appendChild(textarea);
+        todoCard.appendChild(delBtn);
+        todoCardsContainer.appendChild(todoCard);
+        updateCardCounter();
+    }
 
-    newTask.appendChild(newTextArea);
-    newTask.appendChild(delBtn);
+  
+    function updateTaskNumbers() {
+        const tasks = todoCardsContainer.querySelectorAll(".task");
+        tasks.forEach((task, index) => {
+            task.value = `Task ${index + 1}`; 
+        });
+        taskCount = tasks.length; 
+    }
 
-    tasksContainer.appendChild(newTask);
-
-    delBtn.addEventListener('click', () => {
-        tasksContainer.removeChild(newTask);
+    function updateCardCounter(){
+        cardCounter.textContent = `Number of tasks: ${taskCount}`;
+    }
+    updateCardCounter();
+    
+    addButton.addEventListener("click", () => {
+        addTask();
     });
-
-}
+});
