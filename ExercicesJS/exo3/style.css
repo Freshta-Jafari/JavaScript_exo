@@ -1,0 +1,31 @@
+body {
+    background-color: #a3a19b;
+} 
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.carre {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: rgb(95, 170, 108);
+}
+/* .top1 {
+    background-color: rgb(12, 114, 100);
+}
+.top2 {
+    background-color: rgb(204, 10, 10);
+}
+.top3 {
+    background-color: rgb(30, 233, 63);
+}
+.top4 {
+    background-color: rgb(194, 221, 43);
+} */
+
+
