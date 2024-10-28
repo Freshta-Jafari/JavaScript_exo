@@ -1,31 +1,32 @@
 body {
-    background-color: #a3a19b;
-} 
-.container {
     display: flex;
-    flex-direction: row;
-}
-.carre {
-    width: 200px;
-    height: 200px;
-    margin: 10px;
-    text-align: center;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+} 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    grid-template-rows: repeat(2, 200px);
+    gap: 10px;
+}
+.square {
+    width: 200px;
+    height: 200px;
     background-color: rgb(95, 170, 108);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
-/* .top1 {
-    background-color: rgb(12, 114, 100);
+.active {
+    background-color: red;
+    transform: rotate(360deg) scale(0.9);
 }
-.top2 {
-    background-color: rgb(204, 10, 10);
-}
-.top3 {
-    background-color: rgb(30, 233, 63);
-}
-.top4 {
-    background-color: rgb(194, 221, 43);
-} */
-
 
